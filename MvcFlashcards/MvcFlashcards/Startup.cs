@@ -56,6 +56,7 @@ namespace MvcFlashcards
             {
                 routes.MapRoute(
                     name: "default",
+                    //The question mark for ID indicates that it is an optional parameter
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
         }

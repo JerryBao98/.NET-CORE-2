@@ -8,18 +8,19 @@ namespace MvcMovie.Controllers
         // 
         // GET: /HelloWorld/
 
-        public string Index()
+        //Create the interface for the index of homecontroller
+        public IActionResult Index()
         {
-            return "This is my default action...";
+            //Calls the view, but without specifiying, it will only call the index.cshtml 
+            return View();
         }
 
         // GET: /HelloWorld/Welcome/ 
         // GET: /HelloWorld/Welcome/ 
         // Requires using System.Text.Encodings.Web;
-        public string Welcome(string name, int numTimes = 1)
+        public string Welcome(string name, int ID = 1)
         {
-            //Encoder is used to protect against javascript input
-            return HtmlEncoder.Default.Encode($"Hello {name}, NumTimes is: {numTimes}");
+            return HtmlEncoder.Default.Encode($"Hello {name}, ID: {ID}");
         }
     }
 }
