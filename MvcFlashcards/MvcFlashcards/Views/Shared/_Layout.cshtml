@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MvcFlashcards</title>
+    @* All pages will display this title, only part that changes is the variable in the front *@
+    <title>@ViewData["Title"] - Flashcards App</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -26,7 +27,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">MvcFlashcards</a>
+                @* We need to implement the asp controller *@
+                <a asp-area="" asp-controller="Flashcards" asp-action="Index" class="navbar-brand">Flashcards App</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
