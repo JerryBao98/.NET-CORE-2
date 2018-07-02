@@ -26,8 +26,9 @@ namespace MvcFlashcards.Controllers
         }
 
         // GET: Flashcards
-        //Searching ability, search the db for a flashcard with the word in question
-
+        // Searching ability, search the db for a flashcard with the word in question
+        // This is the get method, since we specified ,method = "get" in index.cshtml, 
+        // this method will be called instead
         public async Task<IActionResult> Index(string searchString)
         {
             //This is a LINQ query
