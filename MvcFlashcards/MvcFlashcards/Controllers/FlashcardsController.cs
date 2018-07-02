@@ -29,11 +29,16 @@ namespace MvcFlashcards.Controllers
         // Searching ability, search the db for a flashcard with the word in question
         // This is the get method, since we specified ,method = "get" in index.cshtml, 
         // this method will be called instead
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string flashcardTopic, string searchString)
         {
             //This is a LINQ query
             var flashcards = from m in _context.Flashcard
                          select m;
+
+            // Use LINQ to get the list of genres from the db
+            IQueryable<string> genreQuery = from m in _context.Flashcard
+                                            orderby m.Topic
+                                            select m.Topic;
 
             // Movie is modified to filter on the value of the search string
             // Can work like this: ?searchString=Ghost
@@ -43,7 +48,23 @@ namespace MvcFlashcards.Controllers
                 flashcards = flashcards.Where(s => s.Question.Contains(searchString));
             }
 
-            return View(await flashcards.ToListAsync());
+            // This is a search for movie genre
+            if (!String.IsNullOrEmpty(flashcardTopic))
+            {
+                flashcards = flashcards.Where(x => x.Topic == flashcardTopic);
+            }
+
+            // Convert the list of topics to a select list object
+            // Also get all the movies with that topic
+            var flashcardTopicsVM = new FlashcardTopicViewModel();
+
+            //This will also get rid of duplicates
+            flashcardTopicsVM.topics = new SelectList(await genreQuery.Distinct().ToListAsync());
+            flashcardTopicsVM.flashcards = await flashcards.ToListAsync();
+
+            return View(flashcardTopicsVM);
+
+            //return View(await flashcards.ToListAsync());
         }
 
         // GET: Flashcards/Details/5
