@@ -18,14 +18,25 @@ namespace MvcFlashcards.Controllers
             _context = context;
         }
 
+        // This is used to override the index method below
+        [HttpPost]
+        public string Index(string searchString, bool notUsed)
+        {
+            return "From [HttpPost]Index: filter on " + searchString;
+        }
+
         // GET: Flashcards
         //Searching ability, search the db for a flashcard with the word in question
+
         public async Task<IActionResult> Index(string searchString)
         {
             //This is a LINQ query
             var flashcards = from m in _context.Flashcard
                          select m;
 
+            // Movie is modified to filter on the value of the search string
+            // Can work like this: ?searchString=Ghost
+            // Since its called an id, as specified in startup.cs, the link becomes: .../index/blah
             if (!String.IsNullOrEmpty(searchString))
             {
                 flashcards = flashcards.Where(s => s.Question.Contains(searchString));
