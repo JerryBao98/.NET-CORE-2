@@ -19,9 +19,19 @@ namespace MvcFlashcards.Controllers
         }
 
         // GET: Flashcards
-        public async Task<IActionResult> Index()
+        //Searching ability, search the db for a flashcard with the word in question
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _context.Flashcard.ToListAsync());
+            //This is a LINQ query
+            var flashcards = from m in _context.Flashcard
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                flashcards = flashcards.Where(s => s.Question.Contains(searchString));
+            }
+
+            return View(await flashcards.ToListAsync());
         }
 
         // GET: Flashcards/Details/5
