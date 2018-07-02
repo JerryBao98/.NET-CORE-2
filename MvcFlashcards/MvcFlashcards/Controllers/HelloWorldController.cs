@@ -18,6 +18,7 @@ namespace MvcMovie.Controllers
         // GET: /HelloWorld/Welcome/ 
         // GET: /HelloWorld/Welcome/ 
         // Requires using System.Text.Encodings.Web;
+        // Message and Numtimes are just the parameters passed in
         public IActionResult Welcome(string name, int numTimes = 1)
         {
             ViewData["Message"] = "Hello " + name;
