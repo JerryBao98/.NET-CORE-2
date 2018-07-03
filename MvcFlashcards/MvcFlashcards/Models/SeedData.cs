@@ -27,7 +27,8 @@ namespace MvcFlashcards.Models
                          Question = "Just a seeding test",
                          AddedDate = DateTime.Parse("1989-1-11"),
                          Answer = "No answer to this question",
-                         Topic = "Chemistry"
+                         Topic = "Chemistry",
+                         Source = "Jerry"
                      }
                 );
                 context.SaveChanges();

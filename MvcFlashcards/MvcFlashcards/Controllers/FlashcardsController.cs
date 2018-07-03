@@ -96,7 +96,7 @@ namespace MvcFlashcards.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Question,AddedDate,Answer,Topic")] Flashcard flashcard)
+        public async Task<IActionResult> Create([Bind("ID,Question,AddedDate,Answer,Topic,Source")] Flashcard flashcard)
         {
             if (ModelState.IsValid)
             {
@@ -128,7 +128,7 @@ namespace MvcFlashcards.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Question,AddedDate,Answer,Topic")] Flashcard flashcard)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Question,AddedDate,Answer,Topic,Source")] Flashcard flashcard)
         {
             if (id != flashcard.ID)
             {

@@ -19,5 +19,6 @@ namespace MvcFlashcards.Models
 
         public string Answer { get; set; }
         public string Topic { get; set; }
+        public string Source { get; set; }
     }
 }

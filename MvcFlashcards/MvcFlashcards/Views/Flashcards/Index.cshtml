@@ -36,32 +36,38 @@
             <th>
                 @Html.DisplayNameFor(model => model.flashcards[0].Topic)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.flashcards[0].Source)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model.flashcards)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Question)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AddedDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Answer)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Topic)
-                </td>
-                <td>
-                    @* This is where the edit, delete and details links are created *@
-                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Question)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Answer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Topic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Source)
+            </td>
+            <td>
+                @* This is where the edit, delete and details links are created *@
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

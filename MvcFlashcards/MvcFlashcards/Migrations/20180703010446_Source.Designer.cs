@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MvcFlashcards.Models;
 
 namespace MvcFlashcards.Migrations
 {
     [DbContext(typeof(MvcFlashcardsContext))]
-    partial class MvcFlashcardsContextModelSnapshot : ModelSnapshot
+    [Migration("20180703010446_Source")]
+    partial class Source
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
