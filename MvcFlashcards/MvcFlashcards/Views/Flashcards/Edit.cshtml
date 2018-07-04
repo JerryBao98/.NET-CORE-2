@@ -37,6 +37,12 @@
                 <label asp-for="Source" class="control-label"></label>
                 <input asp-for="Source" class="form-control" />
                 <span asp-validation-for="Source" class="text-danger"></span>
+                <select name="cars">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="fiat">Fiat</option>
+                    <option value="audi">Audi</option>
+                </select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-default" />
