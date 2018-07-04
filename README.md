@@ -15,3 +15,6 @@ dotnet ef database update
 reread this: 
 https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/controller-methods-views?view=aspnetcore-2.1
 on controllers and anti-badstuff
+
+How to add in tag helpers:
+https://docs.microsoft.com/en-us/aspnet/core/mvc/views/working-with-forms?view=aspnetcore-2.1
